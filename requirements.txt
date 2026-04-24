@@ -1,0 +1,19 @@
+# Agent Evals Tutorial Requirements
+
+# Core AI/ML
+openai>=1.0.0
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-openai>=0.2.0
+langgraph>=0.2.0
+
+# Observability
+langsmith>=0.1.0
+
+# Utilities
+tiktoken>=0.7.0
+requests>=2.31.0
+
+# For local development
+jupyter>=1.0.0
+ipykernel>=6.0.0
