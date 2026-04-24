@@ -1,0 +1,122 @@
+# Prompt for Gemma to Create Slides
+
+Copy and paste the entire text below into Gemma:
+
+---
+
+```
+Create a 15-slide presentation about AI Agents for a business audience. Use the content below for each slide:
+
+SLIDE 1: WHAT IS AN LLM?
+- LLM = Large Language Model
+- A tool trained on billions of texts
+- Predicts what comes next in a sentence
+- Answers questions in plain English
+- Example: "What's the weather?" → "It's sunny and 72°"
+Keep it brief with one main point per slide. Use bullet points.
+
+SLIDE 2: BUT WAIT - AN LLM ISN'T PERFECT
+- HALLUCINATIONS: Sometimes they make things up
+- NO MEMORY: Each question is brand new
+- LIMITED TOOLS: Can't do math, search web, or send email
+- That's where AGENTS come in
+
+SLIDE 3: INTRODUCING AGENTS
+- AGENT = LLM + BRAIN + TOOLS + MEMORY + LOOPS
+- LLM (brain): Thinks and decides
+- Tools: Can take actions
+- Memory: Remembers stuff
+- Loop: Keeps trying until done
+
+SLIDE 4: HOW AN AGENT WORKS - THE LOOP
+1. ASK: "What's the weather?"
+2. THINK: LLM decides what to do
+3. ACT: Call a tool (if needed)
+4. DONE? → Repeat or finish
+5. ANSWER: Final response
+
+SLIDE 5: TOOLS - WHAT THE AGENT CAN DO
+- WEB SEARCH: Search the internet
+- CALCULATOR: Do math properly  
+- EMAIL: Send emails
+- CALENDAR: Check/schedule meetings
+- CODE RUNNER: Write and run code
+- BROWSER: Browse websites
+
+SLIDE 6: FUNCTION CALLING = TOOLS
+Step 1: Tell agent "You have a calculator tool"
+Step 2: Ask a question needing math
+Step 3: Agent RECOGNIZES it needs calculator
+Step 4: Tool returns result
+Step 5: Agent responds with answer
+
+SLIDE 7: SKILLS
+- SKILLS = Collections of related tools + instructions
+- Example: RESEARCHER Skill = web_search + scrape_website + summarize
+- Think: Skill = Tool belt + Instructions
+
+SLIDE 8: ROUTERS - DIRECTING TRAFFIC
+- ROUTER = Decides WHICH skill/agent to use
+- Like customer service transferring call to right department
+- Routes question → Math department or Search department etc
+
+SLIDE 9: MEMORY
+- CONVERSATION MEMORY: Remembers chat history
+- WORKING MEMORY: Current task progress
+- LONG-TERM MEMORY: User preferences (optional)
+- No memory = agent forgets everything each question!
+
+SLIDE 10: STATE
+- STATE = What's currently happening
+- Example: task="Research AI trends", current_step=2, collected_info=[...]
+- Think of it like a todo list + collected research materials
+
+SLIDE 11: OBSERVABILITY - SEEING WHAT'S HAPPENING
+- OBSERVABILITY = Looking inside the agent
+- Traditional logs: "Button clicked" → "API called" → "Success"
+- Agent traces: SHOW every step including tool calls
+- LANGCHAIN TRACING shows entire reasoning process
+
+SLIDE 12: TRADITIONAL VS AGENT OBSERVABILITY
+TRADITIONAL: Same input = Same output (deterministic)
+AGENT: Same input ≠ Same output (probabilistic)
+- Traditional: Stack traces / Agent: Reasoning traces
+- Traditional: Unit tests work / Agent: Need SPECIFIC evals
+
+SLIDE 13: EVALUATING AGENTS - THE PROBLEM
+1. PROBABILISTIC OUTPUT: Many "correct" answers possible
+2. MULTI-STEP: Path matters, not just answer
+3. HALLUCINATIONS: Can make up facts
+4. TOOL USAGE: Did it use the right tool?
+
+SLIDE 14: TYPES OF AGENT EVALS
+1. OUTPUT EVALUATION: Is answer correct?
+2. TRAJECTORY EVALUATION: Did it use right tools?
+3. RAG EVALUATION: Retrieved correct info? Cited sources?
+4. SAFETY EVALUATION: No harmful outputs? No hallucinations?
+
+SLIDE 15: HOW LANGSMITH HELPS
+- LANGSMITH = Tool for evaluating agents
+- Records EVERY run with full trace
+- Stores test datasets
+- Runs evaluators on outputs
+- Shows pass/fail + scores
+- THE pipeline: Dataset → Agent → Output → Evaluator → Results
+
+Style:
+- Use clear, simple language
+- Include icons for each bullet (🔍 search, 🧮 calculator, etc)
+- One key point per slide
+- Professional business look
+- Clean minimal design
+```
+
+---
+
+**How to use:**
+1. Copy the entire prompt above
+2. Paste into Google Gemma
+3. Ask it to create slides in your preferred format (Google Slides, PowerPoint, PDF, etc)
+4. Or ask it to output markdown for a slide tool
+
+Want me to tweak the content or add more slides?
