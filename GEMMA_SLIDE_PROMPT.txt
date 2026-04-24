@@ -5,118 +5,294 @@ Copy and paste the entire text below into Gemma:
 ---
 
 ```
-Create a 15-slide presentation about AI Agents for a business audience. Use the content below for each slide:
+Create a 15-slide presentation about AI Agents for a business audience. Each slide should include: TITLE, CONTENT, TALKING POINTS (notes for the presenter), and which notebook cell demonstrates this concept.
 
+Use this format for each slide:
+
+═══════════════════════════════════════════════════════════════════════════════
+SLIDE X: [TITLE]
+═══════════════════════════════════════════════════════════════════════════════
+[Brief bullet points - max 4]
+[Key point with icon]
+
+🔍 TALKING POINTS:
+- [Note 1 for presenter]
+- [Note 2 for presenter]
+
+💻 NOTEBOOK REFERENCE: [Which notebook and cell shows this - e.g., "01_executable_tutorial.ipynb, Step 2"]
+═══════════════════════════════════════════════════════════════════════════════════════
+
+Now create the slides using this content:
+
+──────────────────────────────────────────────────────────────────────
 SLIDE 1: WHAT IS AN LLM?
-- LLM = Large Language Model
-- A tool trained on billions of texts
-- Predicts what comes next in a sentence
-- Answers questions in plain English
-- Example: "What's the weather?" → "It's sunny and 72°"
-Keep it brief with one main point per slide. Use bullet points.
+──────────────────────────────────────────────────────────────────────
+• LLM = Large Language Model
+• Trained on billions of texts
+• Predicts what comes next in a sentence
+• Answers in plain English
 
+🔍 TALKING POINTS:
+- Think of it like a very well-read person
+- Not a database - it predicts what comes next
+- Can answer questions in conversational way
+- Example: "What's weather?" → "It's sunny, 72°"
+
+💻 NOTEBOOK REFERENCE: 01_executable_tutorial.ipynb, Step 2 - shows Basic LLM call
+
+──────────────────────────────────────────────────────────────────────
 SLIDE 2: BUT WAIT - AN LLM ISN'T PERFECT
-- HALLUCINATIONS: Sometimes they make things up
-- NO MEMORY: Each question is brand new
-- LIMITED TOOLS: Can't do math, search web, or send email
-- That's where AGENTS come in
+──────────────────────────────────────────────────────────────────────
+• HALLUCINATIONS: Makes things up sometimes
+• NO MEMORY: Each question is brand new
+• LIMITED TOOLS: Can't do math, search web, send email
 
+🔍 TALKING POINTS:
+- This is why we need AGENTS, not just LLMs
+- Hallucination = confident but wrong answer
+- LLMs don't remember previous conversations
+- Can't take action in the world
+
+💻 NOTEBOOK REFERENCE: PART_1_LLM_Fundamentals/03_llm_limitations_and_errors.ipynb - shows hallucinations
+
+──────────────────────────────────────────────────────────────────────
 SLIDE 3: INTRODUCING AGENTS
-- AGENT = LLM + BRAIN + TOOLS + MEMORY + LOOPS
-- LLM (brain): Thinks and decides
-- Tools: Can take actions
-- Memory: Remembers stuff
-- Loop: Keeps trying until done
+──────────────────────────────────────────────────────────────────────
+• AGENT = LLM + TOOLS + MEMORY + LOOP
+• LLM: The brain that decides
+• TOOLS: Actions it can take
+• MEMORY: Remembers context
+• LOOP: Tries multiple steps
 
+🔍 TALKING POINTS:
+- Agent adds capabilities to the LLM
+- A "smart intern" with tools and notes
+- Can actually DO things, not just talk
+- Multi-step problem solving
+
+💻 NOTEBOOK REFERENCE: 01_executable_tutorial.ipynb, Step 4+5 - shows full agent loop
+
+──────────────────────────────────────────────────────────────────────
 SLIDE 4: HOW AN AGENT WORKS - THE LOOP
-1. ASK: "What's the weather?"
+──────────────────────────────────────────────────────────────────────
+1. ASK: User asks question
 2. THINK: LLM decides what to do
-3. ACT: Call a tool (if needed)
-4. DONE? → Repeat or finish
-5. ANSWER: Final response
+3. ACT: Call a tool if needed
+4. CHECK: Done? → repeat or finish
+5. ANSWER: Return response
 
+🔍 TALKING POINTS:
+- This is the key concept - the AGENT LOOP
+- Not one call and done
+- Can loop multiple times
+- Each iteration may call different tools
+
+💻 NOTEBOOK REFERENCE: 01_executable_tutorial.ipynb, Step 5 - shows the agent loop in action
+
+──────────────────────────────────────────────────────────────────────
 SLIDE 5: TOOLS - WHAT THE AGENT CAN DO
-- WEB SEARCH: Search the internet
-- CALCULATOR: Do math properly  
-- EMAIL: Send emails
-- CALENDAR: Check/schedule meetings
-- CODE RUNNER: Write and run code
-- BROWSER: Browse websites
+──────────────────────────────────────────────────────────────────────
+• WEB SEARCH: 🔍 Search the internet
+• CALCULATOR: 🧮 Do math properly  
+• EMAIL: 📧 Send emails
+• CALENDAR: 📅 Schedule meetings
+• CODE RUNNER: 💻 Execute code
+• BROWSER: 🌐 Browse websites
 
-SLIDE 6: FUNCTION CALLING = TOOLS
-Step 1: Tell agent "You have a calculator tool"
-Step 2: Ask a question needing math
-Step 3: Agent RECOGNIZES it needs calculator
-Step 4: Tool returns result
-Step 5: Agent responds with answer
+🔍 TALKING POINTS:
+- Tools give the agent superpowers
+- Each tool does ONE thing well
+- Agent decides WHEN to use which tool
+- Can combine tools for complex tasks
 
-SLIDE 7: SKILLS
-- SKILLS = Collections of related tools + instructions
-- Example: RESEARCHER Skill = web_search + scrape_website + summarize
-- Think: Skill = Tool belt + Instructions
+💻 NOTEBOOK REFERENCE: 01_executable_tutorial.ipynb, Step 3 - shows tool creation
 
+──────────────────────────────────────────────────────────────────────
+SLIDE 6: FUNCTION CALLING = HOW TOOLS WORK
+──────────────────────────────────────────────────────────────────────
+Step 1: Define tool with description
+Step 2: Agent SEES it has a tool
+Step 3: Agent RECOGNIZES it needs the tool
+Step 4: Tool EXECUTES
+Step 5: Result goes back to agent
+
+🔍 TALKING POINTS:
+- The magic: agent DECIDES to use tool
+- Not pre-programmed - it figures it out
+- Tool description is key
+- Agent reads description and decides
+
+💻 NOTEBOOK REFERENCE: PART_2_Agents_Basics/02_tools_and_function_calling.ipynb - full explanation
+
+──────────────────────────────────────────────────────────────────────
+SLIDE 7: SKILLS - BUNDLED TOOLS
+──────────────────────────────────────────────────────────────────────
+• SKILLS = Collection of related tools + instructions
+• RESEARCHER: web_search + scrape + summarize
+• CALCULATOR: math + unit converter
+• WRITER: search + grammar + format
+
+🔍 TALKING POINTS:
+- Skills bundle multiple tools
+- Like a tool belt for a specific job
+- Organized for specific tasks
+- Easier to manage
+
+💻 NOTEBOOK REFERENCE: PART_2_Agents_Basics/03_routers_and_skills.ipynb - shows skill routing
+
+────────────────────────────────���─────────────────────────────────────
 SLIDE 8: ROUTERS - DIRECTING TRAFFIC
-- ROUTER = Decides WHICH skill/agent to use
-- Like customer service transferring call to right department
-- Routes question → Math department or Search department etc
+──────────────────────────────────────────────────────────────────────
+• ROUTER: Decides WHICH skill to use
+• Routes question → best handler
+• Like customer service transfer
 
-SLIDE 9: MEMORY
-- CONVERSATION MEMORY: Remembers chat history
-- WORKING MEMORY: Current task progress
-- LONG-TERM MEMORY: User preferences (optional)
-- No memory = agent forgets everything each question!
+🔍 TALKING POINTS:
+- Multiple agents/paths possible
+- Router picks the best one
+- Improves accuracy
+- Saves time and tokens
 
-SLIDE 10: STATE
-- STATE = What's currently happening
-- Example: task="Research AI trends", current_step=2, collected_info=[...]
-- Think of it like a todo list + collected research materials
+💻 NOTEBOOK REFERENCE: PART_2_Agents_Basics/03_routers_and_skills.ipynb - shows router logic
 
-SLIDE 11: OBSERVABILITY - SEEING WHAT'S HAPPENING
-- OBSERVABILITY = Looking inside the agent
-- Traditional logs: "Button clicked" → "API called" → "Success"
-- Agent traces: SHOW every step including tool calls
-- LANGCHAIN TRACING shows entire reasoning process
+──────────────────────────────────────────────────────────────────────
+SLIDE 9: MEMORY - REMEMBERING STUFF
+──────────────────────────────────────────────────────────────────────
+• CONVERSATION: Chat history
+• WORKING: Current task progress
+• LONG-TERM: User preferences
 
+🔍 TALKING POINTS:
+- Without memory = every question is fresh
+- With memory = remembers who you are
+- Critical for good experience
+- Different types for different needs
+
+💻 NOTEBOOK REFERENCE: 01_executable_tutorial.ipynb, Step 6 - shows conversation memory
+
+──────────────────────────────────────────────────────────────────────
+SLIDE 10: STATE - CURRENT CONTEXT
+──────────────────────────────────────────────────────────────────────
+• STATE = What's happening now
+• Current step of task
+• Collected information
+• Progress tracking
+
+🔍 TALKING POINTS:
+- Like a todo list + notes
+- Agent knows where it is
+- Can resume if interrupted
+- Essential for complex tasks
+
+💻 NOTEBOOK REFERENCE: PART_2_Agents_Basics/04_memory_and_state.ipynb - shows state
+
+──────────────────────────────────────────────────────────────────────
+SLIDE 11: OBSERVABILITY - SEEING WHAT HAPPENS
+──────────────────────────────────────────────────────────────────────
+• TRADITIONAL: Request → Success
+• AGENT: Shows each step + reasoning
+• LANGCHAIN TRACING: Full visibility
+
+🔍 TALKING POINTS:
+- Traditional logs = what broke
+- Agent traces = WHY it decided that
+- Can debug in production
+- Critical for AI apps
+
+💻 NOTEBOOK REFERENCE: PART_4_Observability/03_tracing_basic_agents.ipynb - full tracing
+
+──────────────────────────────────────────────────────────────────────
 SLIDE 12: TRADITIONAL VS AGENT OBSERVABILITY
-TRADITIONAL: Same input = Same output (deterministic)
-AGENT: Same input ≠ Same output (probabilistic)
-- Traditional: Stack traces / Agent: Reasoning traces
-- Traditional: Unit tests work / Agent: Need SPECIFIC evals
+──────────────────────────────────────────────────────────────────────
+TRADITIONAL:
+• Same input = Same output ✓
+• Stack traces ✓
+• Unit tests work ✓
 
+AGENT:
+• Same input ≠ Same output (probability)
+• Need REASONING traces
+• Need SPECIFIC evals
+
+🔍 TALKING POINTS:
+- Agents behave differently
+- Can't just use regular tests
+- Need to observe the reasoning
+- New debugging approach needed
+
+💻 NOTEBOOK REFERENCE: PART_4_Observability/01_traditional_vs_agent_observability.ipynb
+
+──────────────────────────────────────────────────────────────────────
 SLIDE 13: EVALUATING AGENTS - THE PROBLEM
-1. PROBABILISTIC OUTPUT: Many "correct" answers possible
-2. MULTI-STEP: Path matters, not just answer
-3. HALLUCINATIONS: Can make up facts
-4. TOOL USAGE: Did it use the right tool?
+──────────────────────────────────────────────────────────────────────
+1. PROBABILISTIC: Many "correct" answers
+2. MULTI-STEP: Path matters
+3. HALLUCINATIONS: Can lie
+4. TOOLS: Must use right ones
 
+🔍 TALKING POINTS:
+- One test isn't enough
+- Need thousands of test cases
+- Check output AND path
+- Traditional QA doesn't work
+
+💻 NOTEBOOK REFERENCE: PART_5_Agent_Evals/01_what_are_agent_evals.ipynb - explains problem
+
+──────────────────────────────────────────────────────────────────────
 SLIDE 14: TYPES OF AGENT EVALS
-1. OUTPUT EVALUATION: Is answer correct?
-2. TRAJECTORY EVALUATION: Did it use right tools?
-3. RAG EVALUATION: Retrieved correct info? Cited sources?
-4. SAFETY EVALUATION: No harmful outputs? No hallucinations?
+──────────────────────────────────────────────────────────────────────
+• OUTPUT: Is answer correct?
+• TRAJECTORY: Right tools used?
+• RAG: Retrieved correct info?
+• SAFETY: No hallucinations?
 
+🔍 TALKING POINTS:
+- Multiple eval types needed
+- Output is just one piece
+- How it got there matters
+- Catch different failure modes
+
+💻 NOTEBOOK REFERENCE: PART_5_Agent_Evals/02_types_of_evals.ipynb - all eval types
+
+──────────────────────────────────────────────────────────────────────
 SLIDE 15: HOW LANGSMITH HELPS
-- LANGSMITH = Tool for evaluating agents
-- Records EVERY run with full trace
-- Stores test datasets
-- Runs evaluators on outputs
-- Shows pass/fail + scores
-- THE pipeline: Dataset → Agent → Output → Evaluator → Results
+─────────────────────────────────────────────────────────��────────────
+• Records EVERY run with full trace
+• Stores test DATASETS
+• Runs EVALUATORS
+• Shows PASS/FAIL + scores
+
+Pipeline: Dataset → Agent → Output → Evaluator → Results
+
+🔍 TALKING POINTS:
+- LangSmith = the eval platform
+- Built by LangChain team
+- Free tier available
+- Essential for production agents
+
+💻 NOTEBOOK REFERENCE: PART_5_Agent_Evals/07_final_project_end_to_end.ipynb - full pipeline
+
+──────────────────────────────────────────────────────────────────────
 
 Style:
-- Use clear, simple language
-- Include icons for each bullet (🔍 search, 🧮 calculator, etc)
+- Clean professional design
+- Use icons: 🔍 💻 🧮 📧 🌐 ✅ ❌
 - One key point per slide
-- Professional business look
-- Clean minimal design
+- Business-appropriate
+- Include talking points in presenter notes
+- Link to notebook section
+
+For each slide, also show a small code snippet from the notebook that demonstrates the concept.
 ```
 
 ---
 
 **How to use:**
-1. Copy the entire prompt above
-2. Paste into Google Gemma
-3. Ask it to create slides in your preferred format (Google Slides, PowerPoint, PDF, etc)
-4. Or ask it to output markdown for a slide tool
+1. Copy everything above
+2. Paste into Gemma
+3. Ask: "Create 15 slides using this content"
+4. Specify format: "Use Google Slides" or "Export as markdown"
 
-Want me to tweak the content or add more slides?
+The notebook reference links to `01_executable_tutorial.ipynb` which is your clean, working notebook with all the code!
+
+Want me to adjust anything?

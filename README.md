@@ -4,7 +4,20 @@ A comprehensive Google Colab-ready tutorial for learning agent evaluation with L
 
 ---
 
-## 📚 Course Overview
+## 🚀 Quick Start - Start Here!
+
+**Start with the executable tutorial:**
+```bash
+# Just open in Colab: 01_executable_tutorial.ipynb
+# Or run locally:
+pip install -r requirements.txt
+jupyter notebook 01_executable_tutorial.ipynb
+```
+
+**Then create your presentation:**
+1. Copy `GEMMA_SLIDE_PROMPT.txt`
+2. Paste into Google Gemini/Gemma
+3. Ask to create slides
 
 This tutorial teaches you everything about building and evaluating AI agents, from basics to advanced evaluation techniques.
 
